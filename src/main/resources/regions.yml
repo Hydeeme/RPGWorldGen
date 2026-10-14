@@ -1,0 +1,8 @@
+# Region progression tiers (recommended levels, difficulty, loot). Core plugin is
+# leveling-plugin agnostic; these values feed PlaceholderAPI placeholders + admin docs.
+tiers:
+  tier1: { name: "Beginner Lands", recommended-level: 1, difficulty: 1, loot-tier: 1 }
+  tier2: { name: "Frontier", recommended-level: 5, difficulty: 2, loot-tier: 2 }
+  tier3: { name: "Heartlands", recommended-level: 10, difficulty: 3, loot-tier: 3 }
+  tier4: { name: "Hostile Territories", recommended-level: 20, difficulty: 4, loot-tier: 4 }
+  tier5: { name: "Endgame Realm", recommended-level: 30, difficulty: 5, loot-tier: 5 }

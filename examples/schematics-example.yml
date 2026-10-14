@@ -1,0 +1,10 @@
+# Example custom schematics (requires WorldEdit; missing files fall back to procedural)
+schematics:
+  village_house_1:
+    file: village_house_1.schem
+    category: house
+    rotation: true
+  city_gate_1:
+    file: city_gate_1.schem
+    category: gate
+    rotation: true

@@ -1,0 +1,26 @@
+# RPGWorldGenerator — main configuration
+worlds:
+  default-size: 6000
+  default-seed: 0  # 0 = random seed per world
+  border-margin: 0
+
+generation:
+  blocks-per-tick: 2000   # block ops applied per server tick (lower = less lag)
+  max-queue-size: 50000   # bounded placement queue; overflow ops are counted, never crash
+  structure-per-tick: 1   # structures started per tick
+  error-halt-threshold: 25
+  wilderness-budget: 40   # wilderness features scattered per world after roads
+
+performance:
+  road-delay-ticks: 20
+  loot-drain-per-tick: 4
+
+integrations:
+  prefer-worldguard: true   # mirror safe zones to WorldGuard when present (built-in always applies)
+  register-multiverse: true # mv import on generate (idempotent; link re-verifies later)
+  worldguard:
+    greet-enabled: true     # set GREETING/FAREWELL flags from safezones.yml enter/exit messages
+    deny-message: "&cThis area is protected."
+
+logging:
+  verbosity: INFO  # INFO, FINE, FINER

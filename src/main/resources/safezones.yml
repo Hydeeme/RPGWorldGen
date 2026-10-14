@@ -1,0 +1,7 @@
+# Safe zone defaults
+safezones:
+  spawn-radius: 80
+  capital-radius: 120
+  flags: [pvp-deny, mob-spawn-deny, break-deny, place-deny, explosion-deny]
+  enter-message: "&aEntering {zone} &7— you are safe here."
+  exit-message: "&eLeaving {zone}. Stay sharp!"

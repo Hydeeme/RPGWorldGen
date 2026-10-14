@@ -1,0 +1,13 @@
+# Example: Large RPG World (8,000 × 8,000)
+# Generate during off-hours; consider raising blocks-per-tick on an empty server.
+worlds:
+  default-size: 8000
+generation:
+  blocks-per-tick: 3000
+  max-queue-size: 100000
+  wilderness-budget: 60
+villages: { count-large: 14 }
+cities: { count-large: 5 }
+kingdoms: { count-large: 3 }
+dungeons: { count-large: 20 }
+structures: { landmarks-large: 6 }

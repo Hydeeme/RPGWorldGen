@@ -1,0 +1,6 @@
+# Player/admin-facing messages (& color codes supported)
+no-permission: "&cYou do not have permission."
+usage-create: "&cUsage: /rpgworld create <world> <5000|6000|8000|custom> [seed]"
+generate-started: "&aGeneration started. Track it with /rpgworld status."
+world-created: "&aWorld created."
+plan-complete: "&aPlanning complete."

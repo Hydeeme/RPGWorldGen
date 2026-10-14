@@ -1,0 +1,26 @@
+# Maven / Java
+target/
+*.class
+
+# Third-party server plugin JARs staged at repo root (manual installs, not part of build)
+worldedit-bukkit-*.jar
+worldguard-bukkit-*.jar
+
+# Paper / server test artifacts (never commit)
+cache/
+libraries/
+versions/
+*.log
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local test servers / DBs
+*-test/
+*.db
+*.db-*
+worlds.yml.local

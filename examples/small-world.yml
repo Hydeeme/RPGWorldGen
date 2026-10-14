@@ -1,0 +1,12 @@
+# Example: Small RPG World (5,000 × 5,000)
+# Copy values into plugins/RPGWorldGenerator/*.yml as needed.
+worlds:
+  default-size: 5000
+generation:
+  blocks-per-tick: 1500
+  wilderness-budget: 30
+villages: { count-small: 6 }
+cities: { count-small: 2 }
+kingdoms: { count-small: 1 }
+dungeons: { count-small: 10 }
+structures: { landmarks-small: 3 }

@@ -1,0 +1,11 @@
+# Dungeon generation settings
+dungeons:
+  count-small: 10
+  count-medium: 14
+  count-large: 20
+  min-spacing: 300
+  radius: 30
+  min-rooms: 8
+  max-rooms: 16
+  reset-policy: manual  # manual | timed:<hours> (timed not yet implemented — see limitations)
+  types: [cave, ruins, mine, crypt, catacombs, forest_temple, fortress, desert_tomb, corrupted_sanctuary, endgame]

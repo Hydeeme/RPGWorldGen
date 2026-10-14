@@ -1,0 +1,11 @@
+# Example: Medium RPG World (6,000 × 6,000) — defaults, shown for reference
+worlds:
+  default-size: 6000
+generation:
+  blocks-per-tick: 2000
+  wilderness-budget: 40
+villages: { count-medium: 9 }
+cities: { count-medium: 3 }
+kingdoms: { count-medium: 2 }
+dungeons: { count-medium: 14 }
+structures: { landmarks-medium: 4 }

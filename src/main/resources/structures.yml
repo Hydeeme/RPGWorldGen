@@ -1,0 +1,12 @@
+# Structure / architectural settings
+structures:
+  mode: procedural  # procedural | schematic | hybrid
+  themes: [medieval, rustic, forest, plains, snowy, desert]
+  kingdom-themes: [human, elven, dwarven, desert, corrupted]
+  schematic-cap-blocks: 250000
+  landmarks-small: 3
+  landmarks-medium: 4
+  landmarks-large: 6
+
+# Optional schematic templates (Mode B). Requires WorldEdit; missing templates fall back to procedural.
+schematics: {}

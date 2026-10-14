@@ -1,0 +1,21 @@
+# Settlement counts (per world-size preset) and spacing rules (blocks, center-to-center minimums).
+villages:
+  count-small: 6
+  count-medium: 9
+  count-large: 14
+  min-spacing: 550
+  radius: 45
+cities:
+  count-small: 2
+  count-medium: 3
+  count-large: 5
+  min-spacing: 850
+  radius: 80
+  walled-tier: 3  # cities of this tier and above get walls
+kingdoms:
+  count-small: 1
+  count-medium: 2
+  count-large: 3
+  min-spacing: 1300
+  radius: 120
+global-min-gap: 80
