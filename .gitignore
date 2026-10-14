@@ -5,6 +5,9 @@ target/
 # Third-party server plugin JARs staged at repo root (manual installs, not part of build)
 worldedit-bukkit-*.jar
 worldguard-bukkit-*.jar
+bluemap-*-paper.jar
+Dynmap-*-spigot.jar
+multiverse-core-*.jar
 
 # Paper / server test artifacts (never commit)
 cache/

@@ -15,7 +15,7 @@
 | `regions <world>` | `rpgworld.info` | List planned structures with coords and tiers |
 | `locate <world> <village\|city\|kingdom\|dungeon>` | `rpgworld.info` | Coordinates of matching structures |
 | `regenerate <world> <region-id>` | `rpgworld.regenerate` | Two-step rebuild: run once for a warning, repeat with `--confirm` within 60s |
-| `link <world>` | `rpgworld.generate` | Verify/repair Multiverse registration + WorldGuard mirrors (idempotent) |
+| `link <world>` | `rpgworld.generate` | Verify/repair Multiverse registration + WorldGuard mirrors + map markers (idempotent) |
 | `reload` | `rpgworld.reload` | Reload all YAML configs |
 
 Tab completion covers subcommands, known worlds, sizes, and locate types.

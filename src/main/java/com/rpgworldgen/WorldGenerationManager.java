@@ -2,6 +2,7 @@ package com.rpgworldgen;
 
 import com.rpgworldgen.config.ConfigurationManager;
 import com.rpgworldgen.integration.IntegrationManager;
+import com.rpgworldgen.integration.MapMarkerService;
 import com.rpgworldgen.model.PlannedStructure;
 import com.rpgworldgen.model.WorldPreset;
 import com.rpgworldgen.persist.GenerationPersistenceService;
@@ -38,6 +39,7 @@ public class WorldGenerationManager {
     private final GenerationTaskScheduler scheduler;
     private final SafeZoneManager safeZones;
     private final WorldPlanningEngine planner = new WorldPlanningEngine();
+    private final MapMarkerService mapMarkers;
 
     // world name -> plan (in-memory; authoritative copy is plan JSON in SQLite)
     private final Map<String, WorldPlanningEngine.Plan> plans = new HashMap<>();
@@ -53,7 +55,10 @@ public class WorldGenerationManager {
         this.db = db;
         this.scheduler = scheduler;
         this.safeZones = safeZones;
+        this.mapMarkers = new MapMarkerService(log);
     }
+
+    public MapMarkerService getMapMarkers() { return mapMarkers; }
 
     public WorldPlanningEngine.Plan getPlan(String world) { return plans.get(world); }
 
@@ -317,6 +322,13 @@ public class WorldGenerationManager {
             String mvOutcome = plugin.getIntegrations().registerWorldMultiverse(name);
             log.info("Multiverse link for '" + name + "': " + mvOutcome);
         }
+        // Push plan markers to web maps now (Dynmap works pre-render; BlueMap
+        // attaches on first render — link re-publishes later, idempotently).
+        if (configs.getConfig().getBoolean("integrations.maps.publish-markers", true)
+            && plugin.getIntegrations().hasAnyMap()) {
+            String mapOutcome = mapMarkers.publish(name, plan);
+            log.info("Map markers for '" + name + "': " + mapOutcome);
+        }
         try {
             db.updateWorldState(name, "GENERATING");
         } catch (SQLException e) {
@@ -375,6 +387,11 @@ public class WorldGenerationManager {
                 : "(mirrored: " + String.join(", ", mirrored) + ")");
         }
         sb.append(" MV-last=").append(im.getLastMvResult());
+        sb.append(" Dynmap=").append(im.hasDynmap() ? "on" : "off");
+        sb.append(" BlueMap=").append(im.hasBlueMap() ? "on" : "off");
+        if (im.hasAnyMap()) {
+            sb.append("(markers=").append(mapMarkers.publishedCount(name)).append(")");
+        }
         return sb.toString();
     }
 
@@ -387,6 +404,27 @@ public class WorldGenerationManager {
             return "World '" + name + "' is not loaded.";
         }
         return plugin.getIntegrations().registerWorldMultiverse(name);
+    }
+
+    /**
+     * Publish one world's plan as markers on Dynmap/BlueMap (idempotent).
+     * Honors {@code integrations.maps.publish-markers}; when no map plugin is
+     * installed the outcome says so. Never throws.
+     */
+    public String publishMapMarkers(String name) {
+        WorldPlanningEngine.Plan plan = plans.get(name);
+        if (plan == null) {
+            return "No plan for '" + name + "' (run generate first).";
+        }
+        if (!configs.getConfig().getBoolean("integrations.maps.publish-markers", true)) {
+            return "Map marker publishing disabled (integrations.maps.publish-markers=false).";
+        }
+        if (!plugin.getIntegrations().hasAnyMap()) {
+            return "No map plugin installed (Dynmap/BlueMap); skipping.";
+        }
+        String outcome = mapMarkers.publish(name, plan);
+        log.info("Map markers for '" + name + "': " + outcome);
+        return outcome;
     }
 
     void registerKnownWorld(String name, long seed, int size, WorldPlanningEngine.Plan plan) {

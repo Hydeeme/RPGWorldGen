@@ -17,9 +17,10 @@ Initial release.
 - Commands: full `/rpgworld` tree with granular permissions, tab completion,
   two-step regenerate confirmation, `link` verify/repair for integrations.
 - Integrations: soft-dependency adapters (Multiverse, WorldEdit, WorldGuard,
-  Vault, Citizens, PlaceholderAPI); core runs without all of them.
+  Dynmap, BlueMap, Vault, Citizens, PlaceholderAPI); core runs without all of them.
   WorldGuard mirror sets real DENY flags + greet/farewell (live-verified 7.0.12);
   Multiverse uses the native 5.x import API with command fallback (live-verified
-  5.8.2-pre).
-- 44 unit tests green. Small-world live generation verified (16/16, 0 errors);
+  5.8.2-pre). Dynmap/BlueMap marker publishing coded + unit-tested, live proof
+  pending.
+- 49 unit tests green. Small-world live generation verified (16/16, 0 errors);
   full preset sweep pending (see docs/live-test-plan.md).

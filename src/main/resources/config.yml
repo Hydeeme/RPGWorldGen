@@ -21,6 +21,8 @@ integrations:
   worldguard:
     greet-enabled: true     # set GREETING/FAREWELL flags from safezones.yml enter/exit messages
     deny-message: "&cThis area is protected."
+  maps:
+    publish-markers: true   # push plan markers to Dynmap/BlueMap on generate/link (idempotent)
 
 logging:
   verbosity: INFO  # INFO, FINE, FINER

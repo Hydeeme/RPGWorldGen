@@ -60,6 +60,8 @@ public class IntegrationManager {
     private boolean vault;
     private boolean citizens;
     private boolean placeholderApi;
+    private boolean dynmap;
+    private boolean bluemap;
 
     /** Sanitized WG region ids mirrored per world this session (for status). */
     private final Map<String, Set<String>> mirroredByWorld = new HashMap<>();
@@ -76,9 +78,11 @@ public class IntegrationManager {
         vault = has("Vault");
         citizens = has("Citizens");
         placeholderApi = has("PlaceholderAPI");
+        dynmap = has("dynmap");
+        bluemap = has("BlueMap");
         log.info("Integrations: Multiverse=" + multiverse + " WorldEdit=" + worldEdit
             + " WorldGuard=" + worldGuard + " Vault=" + vault + " Citizens=" + citizens
-            + " PlaceholderAPI=" + placeholderApi);
+            + " PlaceholderAPI=" + placeholderApi + " Dynmap=" + dynmap + " BlueMap=" + bluemap);
     }
 
     private boolean has(String name) {
@@ -96,6 +100,10 @@ public class IntegrationManager {
     public boolean hasVault() { return vault; }
     public boolean hasCitizens() { return citizens; }
     public boolean hasPlaceholderApi() { return placeholderApi; }
+    public boolean hasDynmap() { return dynmap; }
+    public boolean hasBlueMap() { return bluemap; }
+    /** True when at least one web-map plugin is available for markers. */
+    public boolean hasAnyMap() { return dynmap || bluemap; }
 
     /** Last Multiverse outcome (for status reporting). */
     public String getLastMvResult() { return lastMvResult; }

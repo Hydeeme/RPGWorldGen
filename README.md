@@ -18,6 +18,7 @@ across three world-size presets (5,000 / 6,000 / 8,000 blocks).
 | Multiverse-Core | 5.8.2-pre live-verified (Paper 1.21.10); 4.x via command fallback | Native `WorldManager.importWorld` API on generate (idempotent); re-verify anytime with `/rpgworld link <world>` |
 | WorldEdit / FAWE | 7.3.10 live-verified (Paper 1.21.10) | Schematic validation + fallback; required by WorldGuard for region mirroring |
 | WorldGuard | 7.0.12 live-verified (Paper 1.21.10) | Spawn/capital zones mirrored as cuboid regions with real DENY flags + greet/farewell; deterministic ids (`rpg_<world>_<x>_<z>`); built-in protection always applies |
+| Dynmap / BlueMap | Coded + unit-tested; live verification pending | Plan auto-published as markers on generate, re-published by `/rpgworld link`; needs the map plugin installed. Note: Dynmap 3.7-beta-8 (latest) supports max 1.21.4, so live proof needs Paper ≤1.21.4 or a newer Dynmap |
 | Vault / Citizens / PlaceholderAPI | Detected only | No hard logic; placeholders not yet exposed |
 
 Live-verified on Paper 1.21.10 (via PluginRemapper): small world generate

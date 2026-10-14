@@ -195,7 +195,9 @@ public class CommandManager implements CommandExecutor, TabCompleter {
                 String wg = worlds.getIntegrations().hasWorldGuard()
                     ? worlds.mirrorWorldGuardZones(world)
                     : "WorldGuard not installed; built-in zones active.";
-                tell(sender, "&aMultiverse: &f" + mv + "\n&a" + wg + "\n" + worlds.integrationLine(world));
+                String maps = worlds.publishMapMarkers(world);
+                tell(sender, "&aMultiverse: &f" + mv + "\n&a" + wg + "\n&aMaps: &f" + maps
+                    + "\n" + worlds.integrationLine(world));
                 return true;
             }
             default:
@@ -213,7 +215,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
             + "§e/rpgworld regions <world>\n"
             + "§e/rpgworld locate <world> <village|city|kingdom|dungeon>\n"
             + "§e/rpgworld regenerate <world> <region> [--confirm]\n"
-            + "§e/rpgworld link <world> §7- verify/repair Multiverse + WorldGuard mirrors\n"
+            + "§e/rpgworld link <world> §7- verify/repair Multiverse + WorldGuard mirrors + map markers\n"
             + "§e/rpgworld reload");
         return true;
     }

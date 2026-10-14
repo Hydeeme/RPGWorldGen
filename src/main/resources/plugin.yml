@@ -5,7 +5,7 @@ api-version: '1.20'
 author: RPGWorldGenerator Team
 description: Procedural RPG adventure world generator for Spigot/Paper.
 website: https://github.com/example/rpgworldgenerator
-softdepend: [Multiverse-Core, WorldEdit, WorldGuard, Vault, Citizens, PlaceholderAPI]
+softdepend: [Multiverse-Core, WorldEdit, WorldGuard, Vault, Citizens, PlaceholderAPI, dynmap, BlueMap]
 commands:
   rpgworld:
     description: Manage RPG world generation.
